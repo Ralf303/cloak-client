@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Chat</title>
+    <link rel="stylesheet" href="../css/chat.css">
+    <script src="../js/libs/node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="../js/registration/reg.js"></script>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-title">
+     <h1>Название чата</h1>
+    </div>
+    <div class="messages">
+    </div>
+   </div>
+  
+   <div class="input-container">
+    <input type="text" class="message-input" placeholder="Введите сообщение">
+    <button class="send-button">→</button>
+   </div>
+  </div>
+  
+    <script src="../js/utils/sendMessage.js"></script>
+    <script src="../js/socket/socket.js"></script>
+    <script src="../js/socket/socletRouters.js"></script>
+
+</body>
+</html>

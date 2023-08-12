@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.chat-container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: calc(100vh - 40px);
+  padding-bottom: 60px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.chat-title h1 {
+  margin-left: 10px;
+  color: #eee;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #333;
+  word-wrap: break-word;
+  word-break: break-all; /* Добавлено для ломания слов */
+}
+
+.message {
+  color: #eee;
+}
+
+.timestamp {
+  color: gray;
+  font-size: 12px;
+  align-self: flex-end;
+  margin-top: 4px;
+}
+
+.username {
+  color: #eee;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 40px;
+  z-index: 1;
+  overflow-y: auto;
+  flex: 1;
+  height: 100%;
+}
+
+.message-container.right-message {
+  align-self: flex-end;
+  background-color: #007bff;
+}
+
+.message-container.left-message {
+  background-color: #555;
+}
+
+.input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #eee;
+  color: #333;
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
