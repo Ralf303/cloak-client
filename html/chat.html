@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Chat</title>
+    <title>CloakGram</title>
     <link rel="stylesheet" href="../css/chat.css">
     <script src="../js/libs/node_modules/socket.io-client/dist/socket.io.js"></script>
     <script src="../js/registration/reg.js"></script>
@@ -11,7 +11,7 @@
 <body>
   <div class="chat-container">
     <div class="chat-title">
-     <h1>Название чата</h1>
+     <h1 id="nick"></h1>
     </div>
     <div class="messages">
     </div>
@@ -26,6 +26,7 @@
     <script src="../js/utils/sendMessage.js"></script>
     <script src="../js/socket/socket.js"></script>
     <script src="../js/socket/socletRouters.js"></script>
+    <script src="../js/utils/getchatName.js"></script>
 
 </body>
 </html>

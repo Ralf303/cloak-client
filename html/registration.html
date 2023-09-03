@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../css/reg.css">
+</head>
+<body>
+    <div class="login-screen">
+        <div class="app-title">
+            <h1>Добро Пожаловать!</h1>
+        </div>
+
+        <div class="login-form">
+            <div class="control-group">
+                <input type="text" class="login-field" value="" placeholder="Ваш ник" id="login-name">
+                <label class="login-field-icon fui-user" for="login-name"></label>
+                <div id="username-error" class="error-message"></div>
+            </div>
+
+            <div class="control-group">
+                <input type="password" class="login-field" value="" placeholder="Ваш пароль" id="login-pass">
+                <label class="login-field-icon fui-lock" for="login-pass"></label>
+                <div id="password-error" class="error-message"></div>
+            </div>
+            <a class="btn btn-primary btn-large btn-block" href="#" onclick="validateForm()">Зарегистрироваться</a></br>
+            <a class="login-link" href="http://localhost/authorization">Уже зарегистрированы?</a>
+        </div>
+    </div>
+
+    <script src="../js/registration/reg.js"></script>
+  </body>
+</html>
