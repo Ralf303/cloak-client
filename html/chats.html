@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="../js/login/checkAuth.js"></script>
+        <link rel="icon" href="images/logos/icon.jpg">
+        <title>Чатик ^-^</title>
+        <link href="../css/menu.css" rel="stylesheet">
+    </head>
+    <header>
+        <section class="lupa">
+            <img
+                class="search"
+                src="../images/search.svg"
+                height="auto"
+                weight="auto"
+            >
+            <div class="box">
+                <div class="container">
+                    <span class="icon">
+                        <i class="strokasearch"></i>
+                    </span>
+                    <input
+                        clas="input"
+                        type="search"
+                        id="search"
+                        placeholder="Поиск"
+                    >
+                </div>
+            </div>
+        </section>
+        <section class="menuChats">
+            <p class="name">CloakGram</p>
+            <img
+                class="menu"
+                src="../images/menu.svg"
+                height="48px"
+                weight="auto"
+                style="cursor:pointer"
+                onclick="openNav()"
+            ></img>
+        </section>
+    </header>
+    <body>
+        <section class="topleft">
+            <div id="mySidenav" class="sidenav">
+                <div class="nickname">
+                    <p class="nick" id="nick" href="#"></p>
+                    <p
+                        class="closeMenu"
+                        href="javascript:void(0)"
+                        class="closebtn"
+                        onclick="closeNav()"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24"
+                            viewBox="0 -960 960 960"
+                            width="24"
+                            fill="gray"
+                        >
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </p>
+                </div>
+                <a href="settings">Настройки</a>
+                <a href="#">Избранное</a>
+                <div style="position:sticky; bottom:0; top:95%" class="pizdec">
+                    <button class="leave" id="signOutBtn" onclick="exit()">Выйти</button>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="users"></section>
+        <button class="+" id="floating-button">+</button>
+        <div id="dialog" class="dialog">
+            <div class="dialog-content">
+                <span class="close">&times;</span>
+                <h2>С кем начнем общение:</h2>
+                <input type="text" id="usernameInput" placeholder="введите ник">
+                <div id="error"></div>
+                <button id="submitBtn">Начать общение!</button>
+            </div>
+        </div>
+        <script src="../js/menu/getChats.js"></script>
+        <script src="../js/menu/createChat.js"></script>
+        <script src="../js/login/exit.js"></script>
+        <script src="../js/utils/setNickInMenu.js"></script>
+        <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+document.getElementById('floating-button').addEventListener('click', function() {
+  document.getElementById('dialog').style.display = 'block';
+});
+
+document.querySelector('.close').addEventListener('click', function() {
+  document.getElementById('dialog').style.display = 'none';
+});
+
+document.getElementById("submitBtn").addEventListener("click", async function () {
+    try {
+      const username = document.getElementById("usernameInput").value;
+      if (username === "") {
+        document.getElementById("error").textContent = "Введите ник";
+      } else {
+        document.getElementById("error").textContent = "";
+        await createChat(localStorage.getItem("token"), username);
+      }
+    } catch (e) {
+      console.log("ОШИБКА");
+    }
+  });
+
+  getChats(localStorage.getItem("token"));
+  setNick(localStorage.getItem("ourNick"))
+        </script>
+    </body>
+</html>

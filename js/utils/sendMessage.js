@@ -1,9 +1,8 @@
 const sendButton = document.querySelector(".send-button");
 const messageInput = document.querySelector(".message-input");
 const messagesContainer = document.querySelector(".messages");
-const username = localStorage.getItem("username")
 
-function sendMessage(type, msg, username) {
+async function sendMessage(type, msg, username) {
   if (msg) {
     const messageContainer = document.createElement("div");
     messageContainer.classList.add("message-container", type + "-message");
@@ -18,7 +17,10 @@ function sendMessage(type, msg, username) {
 
     const timestampElement = document.createElement("span");
     timestampElement.classList.add("timestamp");
-    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const currentTime = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
     timestampElement.textContent = currentTime;
 
     messageContainer.appendChild(usernameElement);
@@ -30,18 +32,52 @@ function sendMessage(type, msg, username) {
   }
 }
 
-sendButton.addEventListener("click", () => {
-  const messageText = messageInput.value;
-  messageInput.value = "";
-  socket.emit('message', { message: messageText, sender: username });
-  sendMessage("right", messageText, username);
-});
-
-messageInput.addEventListener("keyup", (event) => {
-  if (event.keyCode === 13) {
+sendButton.addEventListener("click", async () => {
+  if (!messageInput.value == "") {
+    const sender = localStorage.getItem("ourNick");
+    const receiver = getChatName();
     const messageText = messageInput.value;
     messageInput.value = "";
-    socket.emit('message', { message: messageText, sender: username });
-    sendMessage("right", messageText, username);
+    await sendServerMessage(
+      localStorage.getItem("ourNick"),
+      receiver,
+      messageText,
+      new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    );
+    socket.emit("message", {
+      message: messageText,
+      sender: sender,
+      receiver: receiver,
+    });
+    await sendMessage("right", messageText, sender);
+  }
+});
+
+messageInput.addEventListener("keyup", async (event) => {
+  if (event.keyCode === 13) {
+    if (!messageInput.value == "") {
+      const sender = localStorage.getItem("ourNick");
+      const receiver = getChatName();
+      const messageText = messageInput.value;
+      messageInput.value = "";
+      await sendServerMessage(
+        localStorage.getItem("ourNick"),
+        receiver,
+        messageText,
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+      socket.emit("message", {
+        message: messageText,
+        sender: sender,
+        receiver: receiver,
+      });
+      await sendMessage("right", messageText, sender);
+    }
   }
 });

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="images/logos/icon.jpg">
+        <title>Чатик ^-^</title>
+        <link href="../css/settings.css" rel="stylesheet">
+    </head>
+    <header>
+        <img
+            class="menu"
+            src="../images/menu.svg"
+            height="48px"
+            weight="auto"
+            style="cursor:pointer"
+            onclick="openNav()"
+        ></img>
+        <p class="name">Настройки</p>
+    </header>
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <div class="nickname">
+                <p class="nick" id="nick" href="#"></p>
+                <p
+                    class="closeMenu"
+                    href="javascript:void(0)"
+                    class="closebtn"
+                    onclick="closeNav()"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24"
+                        viewBox="0 -960 960 960"
+                        width="24"
+                        fill="gray"
+                    >
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    </svg>
+                </p>
+            </div>
+            <a href="chats">Чаты</a>
+            <a href="#">Избранное</a>
+            <div style="position:sticky; bottom:0; top:95%">
+                <button class="leave" id="signOutBtn" onclick="exit()">Выйти</button>
+            </div>
+        </div>
+        <hr>
+        <section class="options" id="options">
+            <div class="profile">
+                <span class="closed">Закрытый профиль</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <br>
+            <p class="change">Сменить пароль</p>
+            <p class="password">Старый пароль</p>
+            <input type="text">
+            <br>
+            <p class="password">Новый пароль</p>
+            <input type="text">
+            <br>
+            <p class="password">Повторите пароль</p>
+            <input type="text">
+            <br>
+            <button class="okbro">Подтвердить</button>
+        </section>
+        <div id="dialog" class="dialog">
+            <div class="dialog-content">
+                <span class="close">&times;</span>
+                <h2>С кем начнем общение:</h2>
+                <input type="text" id="usernameInput" placeholder="введите ник">
+                <div id="error"></div>
+                <button id="submitBtn">Начать общение!</button>
+            </div>
+        </div>
+        <script src="../js/utils/setNickInMenu.js"></script>
+        <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+setNick(localStorage.getItem("ourNick"))
+        </script>
+    </body>
+</html>

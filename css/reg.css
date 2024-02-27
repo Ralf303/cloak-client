@@ -1,83 +1,31 @@
-* {
-    box-sizing: border-box;
-}
-
-:focus {
-    outline: none;
-}
-
+html,
 body {
-    font-family: Arial;
-    background-color: #01497c;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  height: 100%;
 }
 
-.login-screen {
-    background-color: #ecf0f1;
-    padding: 20px;
-    border-radius: 5px;
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+  margin: 0 auto;
 }
 
-.app-title {
-    text-align: center;
-    color: #777;
+.form-signin .form-floating:focus-within {
+  z-index: 2;
 }
 
-.login-form {
-    text-align: center;
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.control-group {
-    margin-bottom: 10px;
+.form-signin input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-input {
-    text-align: center;
-    background-color: #ecf0f1;
-    border: 2px solid transparent;
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: 200;
-    padding: 10px 0;
-    width: 250px;
-    transition: border .5s;
-}
-
-input:focus {
-    border: 2px solid #3498DB;
-    box-shadow: none;
-}
-
-.btn {
-    border: 2px solid transparent;
-    background: #3498DB;
-    color: #ffffff;
-    font-size: 16px;
-    line-height: 25px;
-    padding: 10px 0;
-    text-decoration: none;
-    text-shadow: none;
-    border-radius: 3px;
-    box-shadow: none;
-    transition: 0.25s;
-    display: block;
-    width: 250px;
-    margin: 0 auto;
-}
-
-.btn:hover {
-    background-color: #2980B9;
-}
-
-.error-message {
-    color: red;
-}
-
-.login-link {
-    color: #777;
-    text-decoration: none;
+.form-signin .error-message {
+  color: red;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }

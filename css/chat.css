@@ -30,6 +30,7 @@ body {
   padding: 10px;
   display: flex;
   align-items: center;
+  flex-direction: row;
   z-index: 2;
 }
 
@@ -46,7 +47,8 @@ body {
   border-radius: 10px;
   background-color: #333;
   word-wrap: break-word;
-  word-break: break-all; /* Добавлено для ломания слов */
+  word-break: break-all;
+  /* Добавлено для ломания слов */
 }
 
 .message {
@@ -54,10 +56,10 @@ body {
 }
 
 .timestamp {
-  color: gray;
+  color: rgb(210, 206, 206);
   font-size: 12px;
-  align-self: flex-end;
-  margin-top: 4px;
+  text-align: right;
+  margin-top: 2px;
 }
 
 .username {
@@ -68,13 +70,24 @@ body {
 
 .messages {
   display: flex;
-  flex-direction: column;
-  padding: 10px;
+  flex-flow: column nowrap;
   margin-top: 40px;
   z-index: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   flex: 1;
   height: 100%;
+}
+
+.messages> :first-child {
+  margin-top: auto !important;
+}
+
+.messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: rgb(90, 90, 90);
 }
 
 .message-container.right-message {
@@ -84,6 +97,7 @@ body {
 
 .message-container.left-message {
   background-color: #555;
+  align-self: flex-start;
 }
 
 .input-container {
@@ -102,20 +116,173 @@ body {
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 5px;
   font-size: 16px;
-  background-color: #eee;
-  color: #333;
+  background-color: #333;
+  color: #eee;
+}
+
+.message-input:focus {
+  outline: none;
 }
 
 .send-button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #007bff;
+  background-color: #277fdd;
   color: #fff;
   border: none;
   font-size: 18px;
   margin-left: 10px;
   cursor: pointer;
+}
+
+.send {
+  margin-top: 5px;
+}
+
+.back {
+  transition: 0.3s
+}
+
+.back:hover {
+  fill: #fff
+}
+
+.delete {
+  transition: 0.3s
+}
+
+.delete:hover {
+  fill: #d62828
+}
+
+.delete-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  position: absolute;
+  right: 10px;
+}
+
+
+.dialog {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.dialog-content h2 {
+  color: #000;
+  word-wrap: break-word;
+}
+
+.close {
+  color: #000000;
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #555;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#submitBtn {
+  padding: 10px 16px;
+  margin-top: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#deleteBtn, #cancelBtn {
+  display: inline-block;
+  padding: 10px 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+#deleteBtn {
+  background-color: #d62828;
+  /* Красный цвет для кнопки "Удалить" */
+}
+
+#cancelBtn {
+  background-color: #777;
+  /* Серый цвет для кнопки "Отмена" */
+}
+
+#deleteBtn:hover {
+  background-color: #ff1515;
+  /* Цвет при наведении для обеих кнопок */
+}
+
+#cancelBtn:hover {
+  background-color: #555;
+  /* Цвет при наведении для обеих кнопок */
+}
+
+@media (max-width:600px) {
+
+  .dialog-content {
+    display: flex;
+    flex-direction: column;
+    /* Расположение элементов в столбец */
+    align-items: center;
+    /* Центрирование элементов по горизонтали */
+  }
+
+  .buttons {
+    display: flex;
+    /* Размещение кнопок в ряд */
+  }
+
+  #deleteBtn, #cancelBtn {
+    padding: 10px 16px;
+    margin-right: 10px;
+    /* Отступ между кнопками */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .delete-button {
+    position: relative;
+    margin: 0;
+    right: 0;
+  }
+
+  .chat-title h1 {
+    margin-left: 0px;
+  }
+
+  .chat-title {
+    justify-content: space-between;
+  }
 }

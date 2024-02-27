@@ -1,32 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloakGram</title>
-    <link rel="stylesheet" href="../css/chat.css">
-    <script src="../js/libs/node_modules/socket.io-client/dist/socket.io.js"></script>
-    <script src="../js/registration/reg.js"></script>
-</head>
-<body>
-  <div class="chat-container">
-    <div class="chat-title">
-     <h1 id="nick"></h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CloakGram</title>
+        <link rel="stylesheet" href="../css/chat.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="../js/utils/getchatName.js"></script>
+        <script src="../js/chat-client-service/restoreFunction.js"></script>
+        <script src="../js/libs/node_modules/socket.io-client/dist/socket.io.js"></script>
+        <script src="../js/login/checkAuth.js"></script>
+        <script src="../js/chat-client-service/getChatMessages.js"></script>
+    </head>
+    <body>
+        <div class="chat-container">
+            <div class="chat-title">
+                <a href="../chats">
+                    <svg
+                        class="back"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30"
+                        viewBox="0 -960 960 960"
+                        width="30"
+                        fill="gray"
+                    >
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+                    </svg>
+                </a>
+                <h1 id="nick"></h1>
+                <button class="delete-button">
+                    <svg
+                        class="delete"
+                        id="delete"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="30"
+                        viewBox="0 -960 960 960"
+                        fill="gray"
+                        width="30"
+                    >
+                        <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="messages"></div>
+        </div>
+        <div class="input-container">
+            <input type="text" class="message-input" placeholder="Введите сообщение">
+            <button class="send-button">
+                <img class="send" src="../images/send.svg">
+            </button>
+        </div>
     </div>
-    <div class="messages">
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close">&times;</span>
+            <h2 id="delete-text"></h2>
+            <div class="buttons">
+                <button id="deleteBtn">Удалить</button>
+                <button id="cancelBtn">Отмена</button>
+            </div>
+        </div>
     </div>
-   </div>
-  
-   <div class="input-container">
-    <input type="text" class="message-input" placeholder="Введите сообщение">
-    <button class="send-button">→</button>
-   </div>
-  </div>
-  
+    <script src="../js/utils/deleteDialog.js"></script>
+    <script src="../js/chat-client-service/deleteChat.js"></script>
     <script src="../js/utils/sendMessage.js"></script>
     <script src="../js/socket/socket.js"></script>
-    <script src="../js/socket/socletRouters.js"></script>
-    <script src="../js/utils/getchatName.js"></script>
-
+    <script src="../js/socket/socletRoutersInChat.js"></script>
+    <script src="../js/chat-client-service/sendChatMessage.js"></script>
+    <script>
+        document.getElementById("nick").textContent = `Чат с ${getChatName()}`;
+        document.getElementById("delete-text").textContent = `Удалить чат с ${getChatName()}?`;
+    </script>
 </body>
 </html>
