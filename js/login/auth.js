@@ -18,7 +18,7 @@ async function login() {
   }
 
   try {
-    const response = await axios.post(`http://localhost/auth/login`, {
+    const response = await axios.post(`https://cloakgram.com/auth/login`, {
       data: {
         username: username,
         password: password,
@@ -33,7 +33,7 @@ async function login() {
       usernameError.textContent = `${message}`;
     } else if (message === true) {
       localStorage.setItem("token", token);
-      window.location.href = "http://localhost/chats";
+      window.location.href = "https://cloakgram.com/chats";
     }
   } catch (error) {
     console.error(error);

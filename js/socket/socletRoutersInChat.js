@@ -9,5 +9,5 @@ socket.on("deleteChat", (msg) => {
   isRightChat = getChatName() === msg.userTwo;
   isRightReceiver = localStorage.getItem("ourNick") === msg.userOne;
   if (isRightChat && isRightReceiver)
-    window.location.href = " http://localhost/chats";
+    window.location.href = " https://cloakgram.com/chats";
 });

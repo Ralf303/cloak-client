@@ -1,7 +1,7 @@
 async function getUserById(token, id) {
   try {
     const response = await axios.get(
-      ` http://localhost/utils/getUser/?id=${id}`,
+      ` https://cloakgram.com/utils/getUser/?id=${id}`,
       {
         headers: {
           token: `Bearer ${token}`,
@@ -18,7 +18,7 @@ async function getUserById(token, id) {
 
 async function getChats(token) {
   try {
-    const response = await axios.get(" http://localhost/chats/getChats", {
+    const response = await axios.get(" https://cloakgram.com/chats/getChats", {
       headers: {
         token: `Bearer ${token}`,
       },

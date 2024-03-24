@@ -2,7 +2,7 @@ async function getPrivacyStatus() {
   const toggle = document.getElementById("private");
   try {
     const response = await axios.get(
-      `http://localhost/utils/checkPrivacy?username=${localStorage.getItem(
+      `https://cloakgram.com/utils/checkPrivacy?username=${localStorage.getItem(
         "ourNick"
       )}`
     );

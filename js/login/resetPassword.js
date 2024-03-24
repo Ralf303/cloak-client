@@ -10,11 +10,14 @@ async function resetPassword() {
   }
 
   try {
-    const response = await axios.post(` http://localhost/auth/resetPassword`, {
-      data: {
-        words: string,
-      },
-    });
+    const response = await axios.post(
+      ` https://cloakgram.com/auth/resetPassword`,
+      {
+        data: {
+          words: string,
+        },
+      }
+    );
 
     if (response.data.message == "Неверные слова") {
       alert(`${response.data.message}`);
@@ -22,7 +25,7 @@ async function resetPassword() {
       localStorage.clear();
       localStorage.setItem("resetPassword", true);
       localStorage.setItem("resetId", response.data.user_id);
-      window.location.href = "http://localhost/newPassword";
+      window.location.href = "https://cloakgram.com/newPassword";
     }
   } catch (error) {
     console.error(error);

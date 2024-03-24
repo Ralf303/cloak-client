@@ -1,6 +1,6 @@
 async function sendServerMessage(sender, receiver, text, data) {
   try {
-    await axios.put(" http://localhost/chats/sendMessage", {
+    await axios.put(" https://cloakgram.com/chats/sendMessage", {
       sender: sender,
       receiver: receiver,
       text: text,

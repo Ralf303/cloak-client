@@ -8,7 +8,7 @@ async function keyRequest() {
 
   try {
     const response = await axios.get(
-      ` http://localhost/auth/getWords?nick=${nick}`
+      ` https://cloakgram.com/auth/getWords?nick=${nick}`
     );
 
     const { words } = response.data;
@@ -29,5 +29,5 @@ keyRequest();
 
 function redirect() {
   localStorage.clear();
-  window.location.href = "http://localhost/authorization";
+  window.location.href = "https://cloakgram.com/authorization";
 }

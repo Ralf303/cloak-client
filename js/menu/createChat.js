@@ -18,7 +18,7 @@ function addChat(username) {
 async function createChat(user1, user2) {
   try {
     const response = await axios.post(
-      "http://localhost/chats/createChat",
+      "https://cloakgram.com/chats/createChat",
       {
         user2: user2,
       },
@@ -38,7 +38,7 @@ async function createChat(user1, user2) {
   } catch (error) {
     if (error.name === "AxiosError") {
       localStorage.clear();
-      window.location.href = "http://localhost/authorization";
+      window.location.href = "https://cloakgram.com/authorization";
     }
     document.getElementById("error").textContent = "Такого юзера нет";
     console.log(error);

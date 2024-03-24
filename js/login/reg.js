@@ -55,18 +55,21 @@ async function validateForm() {
   }
 
   try {
-    const response = await axios.post(` http://localhost/auth/registration`, {
-      data: {
-        username: username,
-        password: password,
-      },
-    });
+    const response = await axios.post(
+      ` https://cloakgram.com/auth/registration`,
+      {
+        data: {
+          username: username,
+          password: password,
+        },
+      }
+    );
 
     if (response.data.message == "Данный ник уже занят") {
       usernameError.textContent = `${response.data.message}`;
     } else if (response.data.message === true) {
       localStorage.setItem("timeNick", username);
-      window.location.href = "http://localhost/secretKey";
+      window.location.href = "https://cloakgram.com/secretKey";
     }
   } catch (error) {
     console.error(error);

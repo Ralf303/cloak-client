@@ -28,12 +28,15 @@ async function resetPass() {
   document.getElementById("password-error").textContent = "";
 
   try {
-    const response = await axios.put(` http://localhost/auth/resetPassword`, {
-      data: {
-        id: localStorage.getItem("resetId"),
-        password: password,
-      },
-    });
+    const response = await axios.put(
+      ` https://cloakgram.com/auth/resetPassword`,
+      {
+        data: {
+          id: localStorage.getItem("resetId"),
+          password: password,
+        },
+      }
+    );
     const { message } = response.data;
 
     if (message) {

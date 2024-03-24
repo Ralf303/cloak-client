@@ -2,13 +2,13 @@ async function checkAuth() {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    window.location.href = " http://localhost/authorization";
+    window.location.href = " https://cloakgram.com/authorization";
     return;
   }
 
   try {
     const response = await axios.post(
-      ` http://localhost/auth/check`,
+      ` https://cloakgram.com/auth/check`,
       {},
       {
         headers: {
@@ -24,12 +24,12 @@ async function checkAuth() {
       return;
     } else {
       localStorage.clear();
-      window.location.href = " http://localhost/authorization";
+      window.location.href = " https://cloakgram.com/authorization";
     }
   } catch (error) {
     if (error.name === "AxiosError") {
       localStorage.clear();
-      window.location.href = " http://localhost/authorization";
+      window.location.href = " https://cloakgram.com/authorization";
     }
 
     console.log(error);

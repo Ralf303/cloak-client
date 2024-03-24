@@ -43,7 +43,7 @@ async function changePass() {
 
   try {
     const response = await axios.put(
-      "http://localhost/utils/changePassword",
+      "https://cloakgram.com/utils/changePassword",
       {
         data: {
           oldPassword: oldPassword,
