@@ -37,11 +37,11 @@ async function resetPass() {
     const { message } = response.data;
 
     if (message) {
-      alert("Успешной сброс пароля!");
+      alert("Успешный сброс пароля!");
       localStorage.clear();
       window.location.href = "registration";
     } else {
-      alert("Успешной сброс пароля!");
+      alert("Произошла ошибка, попробуйте позже");
     }
   } catch (e) {
     console.log(e);

@@ -18,7 +18,7 @@ function addChat(username) {
 async function createChat(user1, user2) {
   try {
     const response = await axios.post(
-      " http://localhost/chats/createChat",
+      "http://localhost/chats/createChat",
       {
         user2: user2,
       },
@@ -28,10 +28,9 @@ async function createChat(user1, user2) {
         },
       }
     );
-
     const { userTwo } = response.data.chatInfo;
     if (!userTwo) {
-      document.getElementById("error").textContent = "Такого юзера нет";
+      document.getElementById("error").textContent = response.data.chatInfo;
     } else {
       addChat(userTwo);
       document.getElementById("dialog").style.display = "none";

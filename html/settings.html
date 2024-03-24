@@ -3,7 +3,10 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="images/logos/icon.jpg">
-        <title>Чатик ^-^</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="../js/libs/node_modules/socket.io-client/dist/socket.io.js"></script>
+        <script src="../js/socket/socket.js"></script>
+        <title>CloakGram</title>
         <link href="../css/settings.css" rel="stylesheet">
     </head>
     <header>
@@ -49,33 +52,31 @@
             <div class="profile">
                 <span class="closed">Закрытый профиль</span>
                 <label class="toggle">
-                    <input type="checkbox">
+                    <input type="checkbox" id="private" onclick="changePrivation()">
                     <span class="slider"></span>
                 </label>
             </div>
             <br>
             <p class="change">Сменить пароль</p>
             <p class="password">Старый пароль</p>
-            <input type="text">
+            <input type="text" type="password" id="oldPass">
+            <div id="oldPassError" class="error"></div>
             <br>
             <p class="password">Новый пароль</p>
-            <input type="text">
+            <input type="text" type="password" id="newPass">
+            <div id="newPassError" class="error"></div>
             <br>
             <p class="password">Повторите пароль</p>
-            <input type="text">
+            <input type="text" type="password" id="repeatPass">
+            <div id="repeatPassError" class="error"></div>
             <br>
-            <button class="okbro">Подтвердить</button>
+            <button class="okbro" onclick="changePass()">Подтвердить</button>
         </section>
-        <div id="dialog" class="dialog">
-            <div class="dialog-content">
-                <span class="close">&times;</span>
-                <h2>С кем начнем общение:</h2>
-                <input type="text" id="usernameInput" placeholder="введите ник">
-                <div id="error"></div>
-                <button id="submitBtn">Начать общение!</button>
-            </div>
-        </div>
+        <script src="../js/utils/checkPrivate.js"></script>
         <script src="../js/utils/setNickInMenu.js"></script>
+        <script src="../js/utils/changePass.js"></script>
+        <script src="../js/login/exit.js"></script>
+        <script src="../js/utils/privateTogle.js"></script>
         <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";

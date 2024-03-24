@@ -25,16 +25,19 @@ async function getChats(token) {
     });
 
     const { chats, userId } = response.data;
-    for (let i = 0; i <= chats.length; i++) {
-      const chat = chats[i];
-      if (chat.userOne === chat.userTwo) {
-        addChat("Избранное");
-      } else if (chat.userOne === userId) {
-        const user = await getUserById(token, chat.userTwo);
-        addChat(user.username);
-      } else {
-        const user = await getUserById(token, chat.userOne);
-        addChat(user.username);
+
+    if (chats.length > 0) {
+      for (let i = 0; i <= chats.length; i++) {
+        const chat = chats[i];
+        if (chat.userOne === chat.userTwo) {
+          addChat("Избранное");
+        } else if (chat.userOne === userId) {
+          const user = await getUserById(token, chat.userTwo);
+          addChat(user.username);
+        } else {
+          const user = await getUserById(token, chat.userOne);
+          addChat(user.username);
+        }
       }
     }
   } catch (error) {

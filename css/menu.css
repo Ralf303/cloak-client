@@ -9,6 +9,7 @@ header {
     justify-content: space-between;
 }
 
+
 .menuChats {
     display: flex;
     justify-content: flex-start;
@@ -25,6 +26,7 @@ header {
     color: #f1f1f1;
     font-size: 30px;
     margin: 0;
+    padding-right: 5px;
     margin-top: 23px;
 }
 
@@ -275,7 +277,8 @@ input::placeholder {
     }
 
     .name {
-        margin-top: 17px
+        margin-top: 20px;
+        font-size: 20px;
     }
 
     a.chat-link {
@@ -307,7 +310,7 @@ input::placeholder {
     }
 
     .container input#search {
-        width: auto;
+        width: 100%;
         height: 26px;
         background: #666666;
         border: 1px #BBB solid;
@@ -319,7 +322,7 @@ input::placeholder {
         margin-top: 20px;
     }
 
-    input::placeholder {
+    .input::placeholder {
         color: #989898;
     }
 

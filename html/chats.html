@@ -5,7 +5,7 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="../js/login/checkAuth.js"></script>
         <link rel="icon" href="images/logos/icon.jpg">
-        <title>Чатик ^-^</title>
+        <title>CloakGram</title>
         <link href="../css/menu.css" rel="stylesheet">
     </head>
     <header>
@@ -21,12 +21,7 @@
                     <span class="icon">
                         <i class="strokasearch"></i>
                     </span>
-                    <input
-                        clas="input"
-                        type="search"
-                        id="search"
-                        placeholder="Поиск"
-                    >
+                    <input type="search" id="search" placeholder="Поиск">
                 </div>
             </div>
         </section>
@@ -65,7 +60,7 @@
                     </p>
                 </div>
                 <a href="settings">Настройки</a>
-                <a href="#">Избранное</a>
+                <a href="#" id="favorite">Избранное</a>
                 <div style="position:sticky; bottom:0; top:95%" class="pizdec">
                     <button class="leave" id="signOutBtn" onclick="exit()">Выйти</button>
                 </div>
@@ -87,6 +82,8 @@
         <script src="../js/menu/createChat.js"></script>
         <script src="../js/login/exit.js"></script>
         <script src="../js/utils/setNickInMenu.js"></script>
+        <script src="../js/utils/setFavorite.js"></script>
+        <script src="../js/utils/find.js"></script>
         <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -117,9 +114,12 @@ document.getElementById("submitBtn").addEventListener("click", async function ()
       console.log("ОШИБКА");
     }
   });
-
   getChats(localStorage.getItem("token"));
-  setNick(localStorage.getItem("ourNick"))
+  setTimeout(() => {
+      setNick(localStorage.getItem("ourNick"))
+      setFavorite(localStorage.getItem("ourNick"))
+
+  }, 1000);
         </script>
     </body>
 </html>

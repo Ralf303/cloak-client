@@ -1,17 +1,17 @@
-document.getElementById("delete").addEventListener("click", function () {
-  document.getElementById("dialog").style.display = "block";
-});
+const dialog = document.getElementById("dialog");
 
-document.querySelector(".close").addEventListener("click", function () {
-  document.getElementById("dialog").style.display = "none";
-});
+document.getElementById("delete").onclick = () => {
+  dialog.style.display = "block";
+};
 
-document.getElementById("cancelBtn").addEventListener("click", function () {
-  document.getElementById("dialog").style.display = "none";
-});
+document.querySelector(".close").onclick = () => {
+  dialog.style.display = "none";
+};
 
-document
-  .getElementById("deleteBtn")
-  .addEventListener("click", async function () {
-    await deleteChat(getChatName(), localStorage.getItem("ourNick"));
-  });
+document.getElementById("cancelBtn").onclick = () => {
+  dialog.style.display = "none";
+};
+
+document.getElementById("deleteBtn").onclick = async () => {
+  await deleteChat(getChatName(), localStorage.getItem("ourNick"));
+};
