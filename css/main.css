@@ -2712,13 +2712,6 @@ header.major {
 	text-align: center;
 }
 
-header.major:after {
-	content: '';
-	border-bottom: solid 2px #e6e6e6;
-	display: block;
-	width: 4em;
-	margin: 2em auto 0 auto;
-}
 
 @media screen and (max-width: 736px) {
 
