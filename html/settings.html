@@ -7,6 +7,7 @@
         <script src="../js/libs/node_modules/socket.io-client/dist/socket.io.js"></script>
         <script src="../js/socket/socket.js"></script>
         <title>CloakGram</title>
+        <link rel="icon" href="../images/logo.png">
         <link href="../css/settings.css" rel="stylesheet">
     </head>
     <header>
@@ -42,7 +43,7 @@
                 </p>
             </div>
             <a href="chats">Чаты</a>
-            <a href="#">Избранное</a>
+            <a href="#" id="favorite">Избранное</a>
             <div style="position:sticky; bottom:0; top:95%">
                 <button class="leave" id="signOutBtn" onclick="exit()">Выйти</button>
             </div>
@@ -77,6 +78,7 @@
         <script src="../js/utils/changePass.js"></script>
         <script src="../js/login/exit.js"></script>
         <script src="../js/utils/privateTogle.js"></script>
+        <script src="../js/utils/setFavorite.js"></script>
         <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -86,6 +88,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 setNick(localStorage.getItem("ourNick"))
+setFavorite(localStorage.getItem("ourNick"))
         </script>
     </body>
 </html>
