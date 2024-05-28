@@ -8,7 +8,7 @@ async function keyRequest() {
 
   try {
     const response = await axios.get(
-      ` https://cloakgram.com/auth/getWords?nick=${nick}`
+      `https://cloakgram.com/auth/getWords?nick=${nick}`
     );
 
     const { words } = response.data;
